@@ -19,6 +19,8 @@ RUN set -x \
     && pip install /source \
     && rm -rf /source
 
+RUN sed -i 's/tags=user_dict\["tags"\].split(",") if user_dict\["tags"\] else \[\]/tags=user_dict["tags"] if isinstance(user_dict["tags"], list) else (user_dict["tags"].split(",") if user_dict["tags"] else [])/' /opt/conda/envs/app/lib/python3.9/site-packages/broker_rest_client/models.py
+
 RUN groupadd -r swim && useradd --no-log-init -md /home/swim -r -g swim swim
 
 RUN chown -R swim:swim /app

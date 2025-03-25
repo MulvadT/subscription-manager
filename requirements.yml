@@ -1,19 +1,36 @@
 name: subscription-manager
+channels:
+  - conda-forge
+  - defaults
 dependencies:
-- python
-- pytest
-- pytest-cov
-- Flask
-- Flask-SQLAlchemy
-- SQLAlchemy
-- Werkzeug
-- pip:
-  - gunicorn
-  - connexion[swagger-ui]
-  - marshmallow
-  - marshmallow-sqlalchemy
-  - flask-migrate
-  - psycopg2-binary
-  - git+https://git@github.com/eurocontrol-swim/rest-client.git
-  - git+https://git@github.com/eurocontrol-swim/broker-rest-client.git
-  - git+https://git@github.com/eurocontrol-swim/swim-backend.git
+  - python=3.9.6
+  - flask=1.1.2
+  - werkzeug=1.0.1
+  - jinja2=2.10.3  # Downgraded from 3.0.1 to be compatible with Flask 1.1.2
+  - itsdangerous=1.1.0  # Downgraded from 2.0.1 to be compatible with Flask 1.1.2
+  - markupsafe=1.1.1  # Downgraded from 2.0.1 to be compatible with Jinja2 2.10.3
+  - sqlalchemy=1.4.22
+  - flask-sqlalchemy=2.5.1
+  - click=7.1.2  # Downgraded from 8.0.1 to be compatible with Flask 1.1.2
+  - greenlet=1.1.1
+  - pytest=6.2.4
+  - pytest-cov=2.12.1
+  - coverage=5.5
+  - pip=21.2.4
+  - pip:
+    - alembic==1.6.5
+    - connexion==2.9.0
+    - flask-migrate==3.1.0
+    - gunicorn==20.1.0
+    - marshmallow==3.13.0
+    - marshmallow-sqlalchemy==0.26.1
+    - mongoengine==0.23.1
+    - psycopg2-binary==2.9.1
+    - pymongo==3.12.0
+    - redis==3.5.3
+    - requests==2.26.0
+    - pyyaml==5.4.1
+    - swagger-ui-bundle==0.0.8
+    - git+https://git@github.com/eurocontrol-swim/rest-client.git
+    - git+https://git@github.com/eurocontrol-swim/broker-rest-client.git
+    - git+https://git@github.com/eurocontrol-swim/swim-backend.git
